@@ -9,9 +9,34 @@
      <script src="http://code.angularjs.org/1.2.13/angular.min.js"></script>
      <script src="http://code.angularjs.org/1.2.13/angular-route.min.js"></script>
 
-    <script></script>
+    <script src="scripts/appmain.js"></script>
+    <script src="scripts/coursectrl.js"></script>
+    <script src="scripts/maincrtl.js"></script>
+    <script src="scripts/reqsctrl.js"></script>
+
   </head>
   <body>
-    Hello World
+    <div class="container" width="100%">
+
+        <div class="row">
+            <div style="overflow:auto; background-color:#eeeeee; height:700px;" class="col-md-2" id="reqs">
+                <h4 style="background-color:#757575; color:#ffffff; width:100%; padding:5px;">Requirements</h4>
+            </div>
+
+            <div class="col-md-10">
+                <div style= "background-color:#eeeeee; height:225px; padding: 2px;" id="course">
+                 <h4 style="background-color:#757575; color:#ffffff; width:100%; padding:5px;">Your Schedule</h4>
+                </div>
+                <br>
+                <div style= "background-color:#eeeeee; height:375px; overflow:auto; padding: 2px;" id="main">
+                 <h4 style="background-color:#757575; color:#ffffff; width:100%; padding:5px;">Courses</h4>
+                </div>
+
+
+            </div>
+        </div>
+ 
+    </div>
+
   </body>
 </html>

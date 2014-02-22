@@ -14,33 +14,33 @@ $scope.terms = [
 	$scope.getIndex = function(termId){
 		var index;
 		switch(termId){
-			case:'1A'
+			case '1A':
 				index = 0;
 				break;
-			case: '1B'
+			case '1B':
 				index = 1;
 				break;
-			case: '2A'
+			case '2A':
 				index = 2;
 				break;
-			case: '2B'
+			case '2B':
 				index = 3;
 				break;
-			case: '3A'
+			case '3A':
 				index = 4;
 				break;
-			case: '3B'
+			case '3B':
 				index = 5;
 				break;
-			case: '4A'
+			case '4A':
 				index = 6;
 				break;
-			case: '4B'
+			case '4B':
 				index = 7;
 				break;
 			default:
 				index = 0;
-				break;
+			//	break;
 		}
 		return index;
 
@@ -49,12 +49,11 @@ $scope.terms = [
 	$scope.addCourse = function(termId, courseName){
 		var index = getIndex(termId);
 		$scope.terms[index].courses.push(courseName);
-		}
 	};
 
 	$scope.deleteCourse = function(termId,courseName){
 		var index = getIndex(termId);
-		for(var i = 0; i<$scope.terms[index].courses.length){
+		for(var i = 0; i<$scope.terms[index].courses.length; i++){
 
 			if($scope.terms[index].courses[i]===courseName){
 				$scope.terms[index].courses.splice(i,1);
@@ -126,7 +125,7 @@ $scope.terms = [
 			
 	};
 
-	$scope.checkIfPreReqPresent(codeName){
+	$scope.checkIfPreReqPresent= function(codeName){
 		var preReq=false;
 		for (var i = 0; i<$scope.terms.length;i++){
 			curCourses = $scope.terms[i].courses;
@@ -139,6 +138,6 @@ $scope.terms = [
 
 		}
 		return preReq;
-	}
+	};
 
 }

@@ -131,10 +131,10 @@ function MainCtrl($scope){
 	$scope.checkExact = function(courseType){
 		if(($scope.course).indexOf(courseType)>-1){
 			addSpecificCourses(courseType);
-			document.get.ElementById('main-courses-ontent').innerHTML="";
+			document.get.ElementById('main-courses-content').innerHTML="specific courses";
 		}
 		else{
-			document.get.ElementById('main-courses-ontent').innerHTML="";
+			document.get.ElementById('main-courses-content').innerHTML="other one";
 		}
 
 

@@ -15,7 +15,7 @@
     <script src="scripts/reqsctrl.js"></script>
 
   </head>
-  <body>
+  <body ng-app="app">
 
     <h1 style="text:bold; background-color:#000000; color:#ffffff; padding:5px;">UW Planner</h1>
     <div class="container" width="100%" style="padding:0px">
@@ -27,11 +27,12 @@
             <div class="col-md-10">
                 <div style= "overflow-x:auto; white-space:nowrap; background-color:#eeeeee; height:225px; padding: 2px;" id="course">
                     <h4 style="background-color:#757575; color:#ffffff; width:100%; padding:5px;">Your Schedule</h4>
+                    <div ng-view></div>
                 </div>
                 
                 <br>
                 
-                <div style= "background-color:#eeeeee; height:350px; overflow:auto; padding: 2px;" id="main">
+                <div style= "background-color:#eeeeee; height:350px; overflow:auto; padding: 2px;" id="main" ng-controller="MainCtrl">
                     <h4 style="background-color:#757575; color:#ffffff; width:100%; padding:5px;">Courses</h4>
                     <div id="main-courses-content"></div>
                 </div>

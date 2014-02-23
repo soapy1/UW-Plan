@@ -114,6 +114,41 @@ function MainCtrl($scope){
 		"WKRPT"
 	];
 
+    $scope.getIndex = function(termId){
+		var index;
+		switch(termId){
+			case '1A':
+				index = 0;
+				break;
+			case '1B':
+				index = 1;
+				break;
+			case '2A':
+				index = 2;
+				break;
+			case '2B':
+				index = 3;
+				break;
+			case '3A':
+				index = 4;
+				break;
+			case '3B':
+				index = 5;
+				break;
+			case '4A':
+				index = 6;
+				break;
+			case '4B':
+				index = 7;
+				break;
+			default:
+				index = 0;
+			//	break;
+		}
+		return index;
+
+	};
+
 	$scope.specificCourses = [];
 
     $scope.courseView = [];
@@ -147,14 +182,5 @@ function MainCtrl($scope){
 			$scope.courseView = $scope.course;
 		}
 	};
-
-    $scope.$on("$routeChangeSuccess", function(event, current, previous){
-        param = current.params.term;
-        if (param == undefined){
-            document.getElementById('course-chooser').innerHTML = "";
-        }else{
-            document.getElementById('course-chooser').innerHTML='<div style="background-color:#ffeeee; border:2px solid; height:275px;"><center><h4>'+param+'</h4></center></div>'; 
-        }
-    });
 
 }

@@ -1,16 +1,5 @@
 function CourseCtrl($scope){
 
-$scope.terms = [
-	{id: '1A', courses:[]},
-	{id: '1B', courses:[]},
-	{id: '2A', courses:[]},
-	{id: '2B', courses:[]},
-	{id: '3A', courses:[]},
-	{id: '3B', courses:[]},
-	{id: '4A', courses:[]},
-	{id: '4B', courses:[]}
-
-];
 	$scope.getIndex = function(termId){
 		var index;
 		switch(termId){

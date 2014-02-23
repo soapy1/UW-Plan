@@ -15,6 +15,20 @@
     <script src="scripts/reqsctrl.js"></script>
     <script src="scripts/dragdrop.js"></script>
     <script src="scripts/tmp.js"></script>
+
+    <script>
+         var terms = [
+	        {id: '1A', courses:[]},
+	        {id: '1B', courses:[]},
+	        {id: '2A', courses:[]},
+	        {id: '2B', courses:[]},
+	        {id: '3A', courses:[]},
+	        {id: '3B', courses:[]},
+	        {id: '4A', courses:[]},
+	        {id: '4B', courses:[]}
+        ];
+
+    </script>
   </head>
 
   <body ng-app="app">
@@ -39,9 +53,7 @@
                     <div class="row">
                         <div height="350px" class="col-md-5">
                         Search: <input type="text" id="search" ng-model="searchText" ng-change="checkExact()"></input>
-                        <p id="drag1" draggable="true" ondragstart="drag(event)" width="336" height="69" ng-repeat="i in courseView | filter:searchText track by $index">{{ i }}</p>
-                        </div>
-                        <div style="float:right;" id="course-chooser" class="col-md-2">
+                        <p ng-repeat="i in courseView | filter:searchText track by $index"><a href="#/planview/{{i}}">{{ i }}</a></p>
                         </div>
                     </div>
                 </div>

@@ -1,14 +1,4 @@
 {
-  "meta":{
-    "requests":1,
-    "timestamp":1393108077,
-    "status":200,
-    "message":"Request successful",
-    "method_id":1181,
-    "method":{
-      
-    }
-  },
   "data":
   {
     "Faculty":"ENG",
@@ -50,7 +40,7 @@
 			[1,"NE224"],
 			[1,"NE225"],
 			[1,"NE241"],
-			CSEComplementary
+			{"CSEComplementary"}
     	]
   	}
   	{

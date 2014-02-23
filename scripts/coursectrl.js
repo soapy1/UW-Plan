@@ -95,7 +95,7 @@ $scope.terms = [
 		},500);
 	};
 
-	$scope.checkIfPreReqMet(object,preReq)
+	$scope.checkIfPreReqMet = function(object,preReq)
 	{
 		if(preReq==false)
 			return preReq;

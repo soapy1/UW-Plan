@@ -153,7 +153,7 @@ function MainCtrl($scope){
         if (param == undefined){
             document.getElementById('course-chooser').innerHTML = "";
         }else{
-            document.getElementById('course-chooser').innerHTML='<div style="background-color:#ffeeee; border:2px solid; height:275px;"><h4 style="float:right;">'+param+'</h4></div>'; 
+            document.getElementById('course-chooser').innerHTML='<div style="background-color:#ffeeee; border:2px solid; height:275px;"><center><h4>'+param+'</h4></center></div>'; 
         }
     });
 

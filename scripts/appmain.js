@@ -8,7 +8,7 @@ app.config(
         templateUrl: 'templates/main.html',
         controller: 'CourseCtrl',
       })
-    .when('/planview', {
+    .when('/planview/:courseid', {
         templateUrl: 'templates/course.html',
         controller: 'Tmp'
     })

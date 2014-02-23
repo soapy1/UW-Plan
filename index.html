@@ -14,7 +14,33 @@
     <script src="scripts/maincrtl.js"></script>
     <script src="scripts/reqsctrl.js"></script>
 
+    <style type="text/css">
+        .div 
+        {
+            width:350px;height:70px;padding:10px;border:1px solid #aaaaaa;
+        }
+    </style>
+    <script>
+        function allowDrop(ev)
+        {
+            ev.preventDefault();
+        }
+
+        function drag(ev)
+        {
+            ev.dataTransfer.setData("Text",ev.target.id);
+        }
+
+        function drop(ev)
+        {
+            ev.preventDefault();
+            var data=ev.dataTransfer.getData("Text");
+            ev.target.appendChild(document.getElementById(data));
+        }
+    </script>
+
   </head>
+
   <body ng-app="app">
 
     <h1 style="text:bold; background-color:#000000; color:#ffffff; padding:5px;">UW Planner</h1>
@@ -25,22 +51,19 @@
             </div>
 
             <div class="col-md-10">
-                <div style= "overflow-x:auto; white-space:nowrap; background-color:#eeeeee; height:225px; padding: 2px;" id="course">
+                <div class="div" ondrop="drop(event)" ondragover="allowDrop(event)" style= "overflow-x:auto; white-space:nowrap; background-color:#eeeeee; height:225px; padding: 2px;" id="course">
                     <h4 style="background-color:#757575; color:#ffffff; width:100%; padding:5px;">Your Schedule</h4>
                     <div ng-view></div>
                 </div>
                 
                 <br>
                 
-                <div style= "background-color:#eeeeee; height:350px; overflow:auto; padding: 2px;" id="main" ng-controller="MainCtrl">
+                <div class="div" ondrop="drop(event)" ondragover="allowDrop(event)" style= "background-color:#eeeeee; height:350px; overflow:auto; padding: 2px;" id="main" ng-controller="MainCtrl">
                     <h4 style="background-color:#757575; color:#ffffff; width:100%; padding:5px;">Courses</h4>
                     Search: <input type="text" id="search" ng-model="searchText" ng-change="checkExact()"></input>
-                    <p ng-repeat="i in courseView | filter:searchText track by $index">{{ i }}</p>
+                    <p id="drag1" draggable="true" ondragstart="drag(event)" width="336" height="69" ng-repeat="i in courseView | filter:searchText track by $index">{{ i }}</p>
                     
                 </div>
-
-                <!--BLABLHAIOBHWAEIOBHAOIWEBHAWOIBHWIOEBWAHBIOWEBA-->
-
             </div>
         </div>
  

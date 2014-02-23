@@ -12,22 +12,34 @@
     <script src="scripts/appmain.js"></script>
     <script src="scripts/coursectrl.js"></script>
     <script src="scripts/maincrtl.js"></script>
-    <script src="scripts/reqsctrl.js"></script>
-    <script src="scripts/dragdrop.js"></script>
+    <script src="scripts/requirements.js"></script>
     <script src="scripts/tmp.js"></script>
-
+    <script src="Jsons/CSE_req.json" type = "application/json"></script>
+    
     <script>
+        window.location="#/courseview"
          var terms = [
-	        {id: '1A', courses:[]},
-	        {id: '1B', courses:[]},
-	        {id: '2A', courses:[]},
-	        {id: '2B', courses:[]},
-	        {id: '3A', courses:[]},
-	        {id: '3B', courses:[]},
-	        {id: '4A', courses:[]},
-	        {id: '4B', courses:[]}
+	        {id: '1A', courses:['MATH117', 'NE100', 'NE101', 'NE111', 'NE112', 'NE115', 'NE121']},
+	        {id: '1B', courses:['MATH119', 'NE102', 'NE113', 'NE122', 'NE125', 'NE131', '']},
+	        {id: '2A', courses:['NE2201', 'NE216', 'NE220L', 'NE224', 'NE225', 'NE241', '']},
+	        {id: '2B', courses:['MSCI261', 'NE202', 'NE217', 'NE226', 'NE226L', 'NE232', 'NE242']},
+	        {id: '3A', courses:['NE301', 'NE318', 'NE320L', 'NE333', 'NE334', 'NE343', 'NE344']},
+	        {id: '3B', courses:['NE302', 'NE307', 'NE330L', 'NE335', 'NE336', 'NE340L', 'NE352']},
+	        {id: '4A', courses:['NE401', 'NE408', 'NE450L', 'NE454L', '', '', '']},
+	        {id: '4B', courses:['NE402', 'NE409', 'NE55L', '', '', '', '']}
         ];
 
+    function pop(){
+        var count = 0;
+
+        for (i in terms){
+            for (j in terms[i].courses){
+                document.getElementsByClassName('crs')[count].value = terms[i].courses[j];
+                
+                count += 1;
+            }
+        }
+    };
     </script>
   </head>
 
@@ -36,9 +48,47 @@
     <h1 style="text:bold; background-color:#000000; color:#ffffff; padding:5px;">UW Planner</h1>
     <div class="container" width="100%" style="padding:0px">
         <div class="row">
+
+        <!--
             <div style="overflow:auto; background-color:#eeeeee; height:600px;" class="col-md-2" id="reqs">
                 <h4 style="background-color:#757575; color:#ffffff; width:100%; padding:5px;">Requirements</h4>
             </div>
+--!>
+<div style="overflow:auto; background-color:#eeeeee; height:600px;" class="col-md-2" id="reqs" ng-controller ="RequirementCtrl">
+ 
+                <h4 style="background-color:#757575; color:#ffffff; width:100%; padding:5px;">Requirements</h4>
+                    <!--
+                    <script>
+                    if ({{cseReq[0].Alive}} == false){
+                    document.getElementByTagName("first").style = "background-color: #2FFF21"}
+                    else {
+                    document.getElementByTagName("first").style = "background-color: #FF0400"    
+                    }
+ 
+                    if ({{cseReq[1].Alive}} == false){
+                    document.getElementByTagName("second").style = "background-color: #2FFF21"}
+                    else {
+                    document.getElementByTagName("second").style = "background-color: #FF0400"    
+                    }
+ 
+                    if ({{cseReq[2].Alive}} == false){
+                    document.getElementByTagName("third").style = "background-color: #2FFF21"}
+                    else {
+                    document.getElementByTagName("third").style = "background-color: #FF0400"    
+                    }
+ 
+                    if ({{cseReq[3].Alive}} == false){
+                    document.getElementByTagName("fourth").style = "background-color: #2FFF21"}
+                    else {
+                    document.getElementByTagName("fourth").style = "background-color: #FF0400"    
+                    }
+                    </script>
+ --!>
+                    <div id = "first" style = "border-radius: 10px; height:50px;"> CSE Requirement 1 </div>
+                    <div id = "second" style = "border-radius: 10px; height:50px;"> CSE Requirement 2 </div>
+                    <div id = "third" style = "border-radius: 10px; height:50px;"> CSE Requirement 3 </div>
+                    <div id = "fourth" style = "border-radius: 10px; height:50px;"> CSE Requirement 4 </div>
+                    </div>
 
             <div class="col-md-10">
                 <div class="div" ondrop="drop(event)" ondragover="allowDrop(event)" style= "overflow-x:auto; background-color:#eeeeee; height:225px; padding: 2px;" id="course">

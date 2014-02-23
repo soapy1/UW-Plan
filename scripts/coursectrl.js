@@ -37,22 +37,22 @@ function CourseCtrl($scope){
 
 	$scope.addCourse = function(termId, courseName){
 		var index = getIndex(termId);
-		$scope.terms[index].courses.push(courseName);
+		terms[index].courses.push(courseName);
 	};
 
 	$scope.deleteCourse = function(termId,courseName){
 		var index = getIndex(termId);
-		for(var i = 0; i<$scope.terms[index].courses.length; i++){
+		for(var i = 0; i<terms[index].courses.length; i++){
 
-			if($scope.terms[index].courses[i]===courseName){
-				$scope.terms[index].courses.splice(i,1);
+			if(terms[index].courses[i]===courseName){
+				terms[index].courses.splice(i,1);
 				break;
 			}
 		}
 	};
 
 	$scope.clearEverything = function(){	
-		$scope.terms = [
+		terms = [
 		{id: '1A', courses:[]},
 		{id: '1B', courses:[]},
 		{id: '2A', courses:[]},
@@ -82,6 +82,7 @@ function CourseCtrl($scope){
 			preReq = checkIfPreReqMet(data, preReq);
 
 		},500);
+        return preReq;
 	};
 
 	$scope.checkIfPreReqMet = function(object,preReq)
@@ -116,8 +117,8 @@ function CourseCtrl($scope){
 
 	$scope.checkIfPreReqPresent= function(codeName){
 		var preReq=false;
-		for (var i = 0; i<$scope.terms.length;i++){
-			curCourses = $scope.terms[i].courses;
+		for (var i = 0; i<terms.length;i++){
+			curCourses = terms[i].courses;
 			if(curCourses.indexOf(codeName)>-1){
 				preReq = true;
 			}

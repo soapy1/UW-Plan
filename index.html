@@ -34,8 +34,8 @@
                 
                 <div style= "background-color:#eeeeee; height:350px; overflow:auto; padding: 2px;" id="main" ng-controller="MainCtrl">
                     <h4 style="background-color:#757575; color:#ffffff; width:100%; padding:5px;">Courses</h4>
-                    Search: <input type="text" id="search" ng-model="courseType" ng-change="checkExact()"></input>
-                    <div id="main-courses-content"></div>
+                    Search: <input type="text" id="search" ng-model="searchText" ng-change="checkExact()"></input>
+                    <p ng-repeat="i in courseView | filter:searchText track by $index">{{ i }}</p>
                     
                 </div>
 

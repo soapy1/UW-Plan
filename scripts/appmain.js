@@ -8,6 +8,10 @@ app.config(
         templateUrl: 'templates/main.html',
         controller: 'CourseCtrl'
       })
+    .when('/courseview/:term', {
+        templateUrl: 'templates/main.html',
+        controller: 'CourseCtrl'
+      })
     .when('/planview/:courseid', {
         templateUrl: 'templates/course.html',
         controller: 'TempCtrl'

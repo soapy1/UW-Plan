@@ -148,4 +148,13 @@ function MainCtrl($scope){
 		}
 	};
 
+    $scope.$on("$routeChangeSuccess", function(event, current, previous){
+        param = current.params.term;
+        if (param == undefined){
+            document.getElementById('course-chooser').innerHTML = "";
+        }else{
+            document.getElementById('course-chooser').innerHTML='<div style="background-color:#ffeeee; border:2px solid; height:275px;"><h4 style="float:right;">'+param+'</h4></div>'; 
+        }
+    });
+
 }

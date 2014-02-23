@@ -116,27 +116,35 @@ function MainCtrl($scope){
 
 	$scope.specificCourses = [];
 
-	$scope.addSpecificCourses = function(courseType){
+    $scope.courseView = [];
+
+	$scope.addSpecificCourses = function(courseType, cb){
 		var url = "https://api.uwaterloo.ca/v2/courses/".concat(courseType,".json?key=d0d2408334366902f5105ce8e8211356");
 		$.getJSON(url,function(data){
 			var courses = data.data;
-			for (var i; i < courses.length; i++) {
+			for (var i=0; i < courses.length; i++) {
 				var courseName = (courses[i].subject).concat(courses[i].catalog_number);
 				$scope.specificCourses.push(courseName);
-			};
-
+			    
+            };
+            $scope.$apply();
+            cb();
 		});
 	};
 
 	$scope.checkExact = function(){
-		document.getElementById('main-courses-content').innerHTML="specific courses";
-
-        if(($scope.course).indexOf($scope.courseType)>-1){
-			$scope.addSpecificCourses($scope.courseType);
-			document.getElementById('main-courses-content').innerHTML="specific courses";
-		}
+		
+        var letters = $scope.searchText.replace(/[0-9]+/g,'');
+        $scope.specificCourses = [];
+        console.log($scope.specificCourses);
+        if(($scope.course).indexOf(letters)>-1){
+			$scope.addSpecificCourses(letters, function(){
+		        $scope.courseView = $scope.specificCourses;
+                console.log($scope.specificCourses);
+            });
+        }
 		else{
-			document.getElementById('main-courses-content').innerHTML="other one";
+			$scope.courseView = $scope.course;
 		}
 	};
 

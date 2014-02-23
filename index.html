@@ -12,7 +12,8 @@
     <script src="scripts/appmain.js"></script>
     <script src="scripts/coursectrl.js"></script>
     <script src="scripts/maincrtl.js"></script>
-    <script src="scripts/reqsctrl.js"></script>
+    <script src="scripts/reqsctrl.js"></script>\
+    <script src="scripts/dragdrop.js"></script>
 
     <style type="text/css">
         .div 
@@ -20,24 +21,6 @@
             width:350px;height:70px;padding:10px;border:1px solid #aaaaaa;
         }
     </style>
-    <script>
-        function allowDrop(ev)
-        {
-            ev.preventDefault();
-        }
-
-        function drag(ev)
-        {
-            ev.dataTransfer.setData("Text",ev.target.id);
-        }
-
-        function drop(ev)
-        {
-            ev.preventDefault();
-            var data=ev.dataTransfer.getData("Text");
-            ev.target.appendChild(document.getElementById(data));
-        }
-    </script>
 
   </head>
 

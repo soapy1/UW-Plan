@@ -6,17 +6,13 @@ app.config(
     $routeProvider
     .when('/courseview', {
         templateUrl: 'templates/main.html',
-        controller: 'CourseCtrl',
+        controller: 'CourseCtrl'
       })
     .when('/planview/:courseid', {
         templateUrl: 'templates/course.html',
-        controller: 'Tmp'
+        controller: 'TempCtrl'
     })
       .otherwise({
           redirectTo: '/'
       });
 });
-
-function Tmp($scope){
-
-}

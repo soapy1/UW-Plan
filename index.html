@@ -12,9 +12,9 @@
     <script src="scripts/appmain.js"></script>
     <script src="scripts/coursectrl.js"></script>
     <script src="scripts/maincrtl.js"></script>
-    <script src="scripts/reqsctrl.js"></script>\
+    <script src="scripts/reqsctrl.js"></script>
     <script src="scripts/dragdrop.js"></script>
-
+    <script src="scripts/tmp.js"></script>
   </head>
 
   <body ng-app="app">
@@ -27,7 +27,7 @@
             </div>
 
             <div class="col-md-10">
-                <div class="div" ondrop="drop(event)" ondragover="allowDrop(event)" style= "overflow-x:auto; white-space:nowrap; background-color:#eeeeee; height:225px; padding: 2px;" id="course">
+                <div class="div" ondrop="drop(event)" ondragover="allowDrop(event)" style= "overflow-x:auto; background-color:#eeeeee; height:225px; padding: 2px;" id="course">
                     <h4 style="background-color:#757575; color:#ffffff; width:100%; padding:5px;">Your Schedule</h4>
                     <div ng-view></div>
                 </div>

@@ -125,9 +125,9 @@ function MainCtrl($scope){
 			for (var i=0; i < courses.length; i++) {
 				var courseName = (courses[i].subject).concat(courses[i].catalog_number);
 				$scope.specificCourses.push(courseName);
-			    
+                $scope.$apply();
             };
-            $scope.$apply();
+            
             cb();
 		});
 	};
